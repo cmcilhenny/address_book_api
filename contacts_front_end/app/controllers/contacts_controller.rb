@@ -1,5 +1,6 @@
 class ContactsController < ApplicationController
-  before_action :load_contact, only: [:show, :edit, :update, :destroy]
+  before_action :load_contact, only: [:show, :edit, :update, :destroy, :new_email, :send_email, :sent_email]
+  skip_before_filter :verify_authenticity_token
 
   def index
     @contacts = current_user.contacts
@@ -46,8 +47,13 @@ class ContactsController < ApplicationController
   end
 
   def send_email
+ 
     # Does the actual sending of the email by calling
     # the other rails server
+    response = Typhoeus.post("localhost:3001/email.json", 
+    params: {email: params[:email]})
+    binding.pry
+    # respond_to JSON
   end
 
   def sent_email

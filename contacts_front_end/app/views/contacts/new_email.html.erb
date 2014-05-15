@@ -1,1 +1,12 @@
-TODO - add a form here for creating an email
+<h2>Email contact <%= @contact.name%> at <%= @contact.email%></h2>
+
+<form name="send_email" method="post" action="/contacts/<%=@contact.id%>/email">
+  <div>
+    <input type="text" name="email[subject]" placeholder="<subject>" />
+  </div>
+  <div>
+    <input type="text" name="email[body]" placeholder="<body>" />
+  </div>
+    
+  <button type="submit">Send Email</button>
+</form>
