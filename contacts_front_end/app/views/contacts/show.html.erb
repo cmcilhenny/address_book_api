@@ -8,6 +8,6 @@
   <li class="list-group-item">
     <span class="padding"><%= link_to "Edit", edit_contact_path(@contact) %></span>
     <span class="padding"><%= link_to("Delete", contact_path(@contact), method: 'delete') %></span>
-    <span class="padding"><%= link_to "Email Me"%></span>
+    <span class="padding"><%= link_to "Email Contact", email_contacts_path(@contact) %></span>
   </li>
 </ul>
